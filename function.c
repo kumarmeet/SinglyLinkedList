@@ -44,20 +44,21 @@ void deleteNode(Node *s, int item)
     t->next = r->next;
 }
 
-void deleteLastNode(Node *s)
+void deleteLastNode(Node **s)
 {
     Node *temp, *t;
-    temp = t = s;
+    temp = *s;
+    t= NULL;
 
     while(temp->next != NULL)
     {
         t=temp;
         temp = temp->next;
     }
-    if(temp == s)
-        s=NULL;
-    else
+    if(t != NULL)
         t->next = NULL;
+    else
+        *s=NULL;
 
     free(temp);
 }
