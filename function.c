@@ -31,6 +31,11 @@ void deleteNode(Node *s, int item)
 {
     Node *t, *r;
     r = s;
+    t = r = *s;
+
+    if(r->item == item)
+        *s = r->next;
+    
     while(r->item != item)
     {
         t = r;
